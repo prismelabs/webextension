@@ -1,0 +1,7 @@
+.hidden {
+	display: none;
+}
+
+#toggle-tracking {
+	width: max-content;
+}
