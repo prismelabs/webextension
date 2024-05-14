@@ -36,7 +36,7 @@
       "js": [
         "content_scripts/toggle-tracking.js"
       ],
-      "run_at": "document_idle"
+      "run_at": "document_end"
     }
   ],
   "author": "Alexadre Negrel <alexandre@negrel.dev>",
