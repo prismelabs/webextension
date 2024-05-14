@@ -8,23 +8,23 @@
    */
   window.prisme = window.prisme ?? {}
   if (window.prisme.webExtHasRun) {
-    return;
+    return
   }
-  window.prisme.webExtHasRun = true;
+  window.prisme.webExtHasRun = true
   const hostname = globalThis.location.hostname
 
   const prismeUrls = {}
 
-  async function disableTracking() {
+  async function disableTracking () {
     const scripts = document.querySelectorAll('script')
     for (const script of scripts) {
       prismeUrls[script] = script.dataset.prismeUrl
-      script.dataset.prismeUrl = "http://prisme-webext.localhost/void"
+      script.dataset.prismeUrl = 'http://prisme-webext.localhost/void'
     }
     await browser.storage.sync.set({ [hostname]: true })
   }
 
-  async function enableTracking() {
+  async function enableTracking () {
     const scripts = document.querySelectorAll('script')
     for (const script of scripts) {
       if (prismeUrls[script] === undefined) {
@@ -36,12 +36,12 @@
     await browser.storage.sync.remove([hostname])
   }
 
-  async function getTrackingDisabled() {
+  async function getTrackingDisabled () {
     const obj = await browser.storage.sync.get([hostname])
     return obj[hostname] ?? false
   }
 
-  async function toggleTracking() {
+  async function toggleTracking () {
     if (await getTrackingDisabled()) {
       enableTracking()
     } else {
@@ -54,7 +54,7 @@
    */
   browser.runtime.onMessage.addListener(() => {
     toggleTracking()
-  });
+  })
 
   /**
    * Disable tracking if tracking is disabled in storage.
@@ -62,4 +62,4 @@
   if (await getTrackingDisabled()) {
     disableTracking()
   }
-})();
+})()

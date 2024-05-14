@@ -16,14 +16,17 @@
   },
   "action": {
     "default_icon": {
-      "256": "icons/icon-256.jpg"
+      "256": "icons/prisme-256.png"
     },
     "default_title": "Prisme Analytics",
     "default_popup": "popup/toggle-tracking.html"
   },
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "permissions": [
     "storage",
-    "tabs"
+    "activeTab"
   ],
   "content_scripts": [
     {
