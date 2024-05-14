@@ -23,7 +23,7 @@
   let trackingDisabled
 
   getTrackingDisabled().then((trackingDisabled) => {
-    toggleTrackingBtn.innerHTML = toggleTrackingBtnText[trackingDisabled]
+    toggleTrackingBtn.innerText = toggleTrackingBtnText[trackingDisabled]
   })
 
   toggleTrackingBtn.addEventListener('click', async () => {
@@ -37,6 +37,6 @@
       .query({ active: true, currentWindow: true })
       .then((tabs) => browser.tabs.sendMessage(tabs[0].id, { command: 'toggle-tracking' }))
       .catch(console.error)
-    toggleTrackingBtn.innerHTML = toggleTrackingBtnText[!trackingDisabled]
+    toggleTrackingBtn.innerText = toggleTrackingBtnText[!trackingDisabled]
   })
 })()
