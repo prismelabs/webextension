@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Prisme Analytics",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Official Prisme Analytics extension to exclude your browser from analytics.",
   "homepage_url": "https://www.prismeanalytics.com/",
   "icons": {
@@ -36,7 +36,7 @@
       "js": [
         "content_scripts/toggle-tracking.js"
       ],
-      "run_at": "document_end"
+      "run_at": "document_start"
     }
   ],
   "author": "Alexadre Negrel <alexandre@negrel.dev>",
